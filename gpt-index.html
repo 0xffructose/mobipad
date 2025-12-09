@@ -1,0 +1,346 @@
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dualshock 4 GamePad</title>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .controller {
+            width: 100dvw;
+            height: 100dvh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: column;
+            padding: min(20px, 2vh) 0;
+            box-sizing: border-box;
+        }
+
+        .pad-shoulder {
+            width: 100dvw;
+            height: auto;
+            min-height: 15vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-shrink: 0;
+        }
+
+        .pad-top {
+            width: 100dvw;
+            height: auto;
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 min(20px, 3vw);
+            box-sizing: border-box;
+        }
+
+        .pad-bottom {
+            width: 100dvw;
+            height: auto;
+            min-height: 25vh;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            flex-shrink: 0;
+            padding: min(10px, 1vh) 0;
+            box-sizing: border-box;
+        }
+
+        .pad-bottom .pad-flex {
+            width: 50%;
+        }
+
+        .pad-flex {
+            width: 33.33%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: min(15px, 2vw);
+        }
+
+        .flex-start {
+            justify-content: flex-start;
+        }
+
+        .flex-end {
+            justify-content: flex-end;
+        }
+
+        /* Responsive image sizing */
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .pad-shoulder img {
+            width: min(128px, 15vw);
+            height: auto;
+        }
+
+        /* Center buttons */
+        .center {
+            display: flex;
+            flex-direction: column;
+            gap: min(15px, 2vh);
+            align-items: center;
+        }
+
+        .center img {
+            width: min(80px, 10vw);
+            height: auto;
+        }
+
+        /* DPad */
+        .dpad {
+            position: relative;
+            width: min(220px, 28vw);
+            height: min(220px, 28vw);
+        }
+
+        .dpad img {
+            position: absolute;
+            width: min(100px, 13vw);
+            height: auto;
+        }
+
+        .dpad .up {
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .dpad .down {
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .dpad .left {
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .dpad .right {
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* Buttons */
+        .buttons {
+            position: relative;
+            width: min(220px, 28vw);
+            height: min(220px, 28vw);
+        }
+
+        .buttons img {
+            position: absolute;
+            width: min(100px, 13vw);
+            height: auto;
+        }
+
+        .buttons .a {
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .buttons .b {
+            right: 50%;
+            bottom: 0;
+            transform: translate(50%, 0);
+        }
+
+        .buttons .x {
+            right: 50%;
+            top: 0;
+            transform: translate(50%, 0);
+        }
+
+        .buttons .y {
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        /* Analog sticks */
+        .left-anl-stick img,
+        .right-anl-stick img {
+            width: min(160px, 20vw);
+            height: auto;
+        }
+
+        .left-anl-stick,
+        .right-anl-stick {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            .pad-shoulder {
+                min-height: 12vh;
+                gap: 10px;
+            }
+
+            .pad-shoulder img {
+                width: min(70px, 14vw);
+            }
+
+            .center {
+                gap: min(10px, 1.5vh);
+            }
+
+            .center img {
+                width: min(60px, 12vw);
+            }
+
+            .dpad {
+                width: min(180px, 32vw);
+                height: min(180px, 32vw);
+            }
+
+            .dpad img {
+                width: min(80px, 15vw);
+            }
+
+            .buttons {
+                width: min(180px, 32vw);
+                height: min(180px, 32vw);
+            }
+
+            .buttons img {
+                width: min(80px, 15vw);
+            }
+
+            .left-anl-stick img,
+            .right-anl-stick img {
+                width: min(130px, 24vw);
+            }
+
+            .pad-bottom {
+                min-height: 22vh;
+            }
+        }
+
+        /* Extra small screens */
+        @media (max-width: 480px) {
+            .controller {
+                padding: min(10px, 1vh) 0;
+            }
+
+            .pad-shoulder {
+                min-height: 10vh;
+            }
+
+            .pad-shoulder img {
+                width: min(50px, 16vw);
+            }
+
+            .pad-top {
+                padding: 0 min(10px, 2vw);
+            }
+
+            .center img {
+                width: min(45px, 14vw);
+            }
+
+            .dpad {
+                width: min(150px, 38vw);
+                height: min(150px, 38vw);
+            }
+
+            .dpad img {
+                width: min(65px, 18vw);
+            }
+
+            .buttons {
+                width: min(150px, 38vw);
+                height: min(150px, 38vw);
+            }
+
+            .buttons img {
+                width: min(65px, 18vw);
+            }
+
+            .left-anl-stick img,
+            .right-anl-stick img {
+                width: min(110px, 28vw);
+            }
+
+            .pad-bottom {
+                min-height: 20vh;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="controller">
+            
+            <div class="pad-shoulder">
+                <div class="pad-flex">
+                    <img src="public/icons/lb.png" alt="" width="128" height="128">
+                    <img src="public/icons/lt.png" alt="" width="128" height="128" style="rotate: -90deg">
+                </div>
+                <div class="pad-flex">
+                    <img src="public/icons/rt.png" alt="" width="128" height="128" style="rotate: 90deg">
+                    <img src="public/icons/rb.png" alt="" width="128" height="128">
+                </div>
+            </div>
+
+            <div class="pad-top">
+                <div class="flex-start pad-flex">
+                    <div class="dpad">
+                        <img class="up" src="public/icons/arr_up.png" alt="" width="128" height="128">
+                        <img class="down" src="public/icons/arr_down.png" alt="" width="128" height="128">
+                        <img class="left" src="public/icons/arr_left.png" alt="" width="128" height="128">
+                        <img class="right" src="public/icons/arr_right.png" alt="" width="128" height="128">
+                    </div>
+                </div>
+                <div class="pad-flex">
+                    <div class="center">
+                        <img src="public/icons/back.png" alt="" width="128" height="128">
+                        <img src="public/icons/home.png" alt="" width="128" height="128">
+                        <img src="public/icons/start.png" alt="" width="128" height="128">
+                    </div>
+                </div>
+                <div class="flex-end pad-flex">
+                    <div class="buttons">
+                        <img class="a" src="public/icons/a.png" alt="" width="128" height="128">
+                        <img class="b" src="public/icons/b.png" alt="" width="128" height="128">
+                        <img class="x" src="public/icons/x.png" alt="" width="128" height="128">
+                        <img class="y" src="public/icons/y.png" alt="" width="128" height="128">
+                    </div>
+                </div>
+            </div>
+
+            <div class="pad-bottom">
+                <div class="pad-flex">
+                    <div class="left-anl-stick">
+                        <img src="public/icons/left_anl.png" alt="" width="196" height="196">
+                    </div>
+                </div>
+                <div class="pad-flex">
+                    <div class="right-anl-stick">
+                        <img src="public/icons/right_anl.png" alt="" width="196" height="196">
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>

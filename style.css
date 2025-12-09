@@ -1,0 +1,132 @@
+html , body {
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+}
+
+.controller {
+    width: 100dvw;
+    height: 100dvh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    flex-direction: column;
+}
+
+.pad-shoulder {
+    width: 100dvw;
+    height: 50dvh;
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.pad-top {
+    width: 100dvw;
+    height: 100dvh;
+
+    display: flex;
+}
+
+.pad-bottom {
+    width: 100dvw;
+    height: 100dvh;
+    
+    display: flex;
+}
+
+.pad-flex {
+    width: 100%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-start {
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.flex-end {
+    align-items: flex-end;
+    flex-direction: column;
+}
+
+
+/* DPad */
+.dpad {
+    position: relative;
+    width: 300px;  /* Butonlar 128px olduğundan container biraz büyük olmalı */
+    height: 300px;
+}
+
+.dpad img {
+    position: absolute;
+}
+
+.dpad .up {
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.dpad .down {
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.dpad .left {
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.dpad .right {
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+/* Buttons */
+.buttons {
+    position: relative;
+    width: 300px;  /* Butonlar 128px olduğundan container biraz büyük olmalı */
+    height: 300px;
+}
+
+.buttons img {
+    position: absolute;
+    width: 128px;
+    height: 128px;
+}
+
+/* PS tarzı konumlar */
+.buttons .a {
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.buttons .b {
+    right: 50%;
+    bottom: 0;
+    transform: translate(50%, 0);
+}
+
+.buttons .x {
+    right: 50%;
+    top: 0;
+    transform: translate(50%, 0);
+}
+
+.buttons .y {
+    top: 50%;
+    transform: translateY(-50%);
+}
